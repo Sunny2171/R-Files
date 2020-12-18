@@ -1,0 +1,264 @@
+---
+title: "DSA Assignment"
+author: "Sunny Sharma"
+date: "18/12/2020"
+output: word_document
+---
+
+Object creation & Value assignment
+```{r}
+a=25
+b=30
+```
+
+Command line Interface
+```{r}
+b
+```
+
+Object need not be explicitly defined
+```{r}
+c=45
+class(c)
+d=TRUE
+class(d)
+```
+Simple Mathematical Operations:
+
+1) Addition
+```{r}
+a+b
+```
+2)Subtraction
+```{r}
+b-a
+```
+3) Division
+```{r}
+b/a
+```
+4) Multiplication
+```{r}
+b*a
+```
+5) Square root
+```{r}
+sqrt(a)
+```
+6) Power
+```{r}
+a^3
+```
+7)logarithm 
+```{r}
+log(a,base=exp(1))
+```
+8) Factorial
+```{r}
+factorial(a)
+```
+
+Data types are as follows:
+
+1) Numeric
+```{r}
+a=20
+class(a)
+```
+2)Character
+```{r}
+b="Hello"
+class(b)
+```
+3) Logical
+```{r}
+c=TRUE
+class(c)
+d=FALSE
+class(d)
+```
+4) Date
+```{r}
+date1=as.Date("2015-04-16")
+class(date1)
+```
+5)POSIXct - Date & Time
+```{r}
+date2=as.POSIXct("2015-5-18 16:32")
+class(date2)
+```
+
+Factors
+
+```{r}
+rm(list=ls())
+a=c("jan","feb","mar","apr")
+a
+as.numeric(a)
+class(a)
+b=as.factor(a)
+as.numeric(b)
+b
+# Missing Value test
+c=c(1,2,3,NA,NA,5)
+is.na(c)
+d=c("jan",NA,"feb")
+is.na(d)
+# Null value
+e=c(NULL,3,4)
+is.null(e)
+f=NULL
+is.null(f)
+```
+
+TO get a working directory
+```{r}
+getwd()
+```
+
+Divider Function
+```{r}
+divider = function(x,y)
+{
+  result = x/y
+  print(result)
+}
+divider(100,20)
+```
+Multiplier Function
+```{r}
+multiply = function(x,y)
+{
+  result = x*y
+  print(result)
+}
+multiply(8,20)
+```
+Concatenation and Arrays
+```{r}
+d=c(1:5)
+d
+d+6
+d-2
+```
+R is a vectorized language
+```{r}
+e=c(1:10)
+e
+f=e*2
+f
+g=f/2
+g
+```
+Matrix Creation
+```{r}
+M=matrix(1:15,nrow=3)
+M
+```
+
+```{r}
+a=matrix(1:10,nrow=5)
+b=matrix(11:20,nrow=2)
+a
+b
+# Matrix addition
+c=t(b)
+a+c
+# Matrix Multiplication
+a%*%b
+```
+
+Arrays (N dimensional)
+```{r}
+d=array(1:16, dim=c(4,2,2))
+d
+d[,,2]
+d[,1,1]
+```
+
+```{r}
+url=read.table("C:\\Users\\Admin\\Documents\\R\\Tomato First.csv",header=TRUE,sep=",")
+head(url)
+```
+
+Loading Built in data sets
+```{r}
+data("mtcars")
+head(mtcars, 7)
+```
+
+```{r}
+# Generate a random sample
+d=sample(x=1:25,size=50,replace=TRUE)
+d
+mean(d)
+# Weighted means
+grade=c(95,92,91,87)
+weights= c(1/2,1/4,1/8,1/8)
+mean(grade)
+weighted.mean(x=grade,w=weights)
+# Variance & SD
+var(d)
+sd(x=d,na.rm=FALSE)
+# Min & Max Functions
+min(d)
+max(d)
+median(d)
+quantile(d,probs=c(0.2,0.4,0.6,0.8))
+```
+```{r}
+library("ggplot2")
+head(economics)
+# Covariance
+cor(economics$pce,economics$psavert)
+```
+
+```{r}
+rm(list=ls())
+data(tips, package="reshape2")
+head(tips)
+str(tips)
+# Returns Unique values
+unique(tips$sex)
+unique(tips$day)
+# one sample t test (H0 = 2.5, Two Tailed)
+t.test(tips$tip, alternative="two.sided",mu=2.5)
+# one sample t test (H0 = 2.5, upper tail)
+t.test(tips$tip, alternative="greater",mu=2.5)
+  
+# Two sample t test 
+t.test(tip~sex, data=tips, var.equal = TRUE)
+# Anova
+tipAnova=aov(tip~day,tips)
+summary(tipAnova)
+```
+
+Vector Creation
+```{r}
+a=c(1:15)
+a
+```
+Vector Operation
+```{r}
+a+3
+a-2
+a^2
+b=c(-4:0)
+a+b
+d=c(-4:10)
+a
+d
+any(a<d)
+all(a<d)
+a[4]
+f=c("january","february","march","april","may","june")
+nchar(f)
+```
+Naming Vectors
+```{r}
+c(one="a",two="b",three="c")
+w=1:3
+names(w)=c("a","b","c")
+w
+```
+
